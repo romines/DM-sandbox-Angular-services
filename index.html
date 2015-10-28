@@ -7,9 +7,29 @@
   <script src="js/app.js"></script>
   <script src="js/mainCtrl.js"></script>
   <script src="js/dataService.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="mainCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <li ng-repeat="quote in quotes">{{quote.text}} - <b>{{quote.author}}</b></li>
+        <div class="controls">
+
+            <button ng-click="wasClicked()" class="btn btn-default">Add Quote</button>
+            <input ng-show="adding" type="text" id="add-quote">
+            <button class="btn btn-default">Remove Quote</button>
+
+          <span ng-show="filtering" class="filtering">
+            <input type="text" id="quote-filter">
+            <button class="btn btn-default">Clear</button>
+          </span>
+          <button ng-click="filtering=!filtering"class="btn btn-default">Filter Quotes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
